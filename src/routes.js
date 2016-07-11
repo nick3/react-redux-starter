@@ -1,7 +1,7 @@
 // import Index from './containers/routes/Index';
 // import Self from './containers/routes/Self';
-import App from './containers/App';
-import Demo from './containers/Demo';
+import App from './containers/App'
+import Demo from './containers/Demo'
 
 const routes = [
   {
@@ -20,6 +20,6 @@ const routes = [
     path: '/demo',
     component: Demo
   }
-];
+]
 
-export default routes;
+export default routes

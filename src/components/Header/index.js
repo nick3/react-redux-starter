@@ -1,5 +1,5 @@
-import React from 'react';
-import { AppBar } from 'material-ui';
+import React from 'react'
+import { AppBar } from 'material-ui'
 
 class Header extends React.Component {
   render() {
@@ -8,11 +8,11 @@ class Header extends React.Component {
         title={this.props.title}
         iconClassNameRight="muidocs-icon-navigation-expand-more">
       </AppBar>
-    );
+    )
   }
 }
 
 Header.defaultProps = {
-};
+}
 
-export default Header;
+export default Header
