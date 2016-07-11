@@ -10,12 +10,17 @@ import React, {
 } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Main from '../../components/Main';
 /* Populated by react-webpack-redux:reducer */
 class Demo extends Component {
   render() {
     const {actions} = this.props;
-    return <Main actions={actions}/>;
+    return (
+      <MuiThemeProvider>
+        <Main actions={actions}/>
+      </MuiThemeProvider>
+    );
   }
 }
 /* Populated by react-webpack-redux:reducer
