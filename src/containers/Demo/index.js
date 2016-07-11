@@ -11,14 +11,16 @@ import React, {
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Main from '../../components/Main';
+import Header from '../../components/Header';
 /* Populated by react-webpack-redux:reducer */
 class Demo extends Component {
   render() {
-    const {actions} = this.props;
+    // const {actions} = this.props;
     return (
       <MuiThemeProvider>
-        <Main actions={actions}/>
+        <div>
+          <Header title="Demo" />
+        </div>
       </MuiThemeProvider>
     );
   }
@@ -31,6 +33,7 @@ class Demo extends Component {
 Demo.propTypes = {
   actions: PropTypes.object.isRequired
 };
+
 function mapStateToProps(state) {
   /* Populated by react-webpack-redux:reducer */
   const props = {};

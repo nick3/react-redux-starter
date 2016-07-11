@@ -1,10 +1,22 @@
-const redux = require('redux');
-const reducers = require('../reducers');
+import { createStore, applyMiddleware } from 'redux'
+import { logger, promise } from '../middleware'
+import rootReducer from '../reducers'
+import config from 'config'
 
-module.exports = function(initialState) {
-  const store = redux.createStore(reducers, initialState, redux.compose(
-    window.devToolsExtension ? window.devToolsExtension() : f => f
-  ));
+export default function configure(initialState) {
+  const create = window.devToolsExtension
+    ? window.devToolsExtension()(createStore)
+    : createStore
+
+  const middlewares = [promise]
+  if (config.appEnv === 'dev') {
+    middlewares.push(logger)
+  }
+  const createStoreWithMiddleware = applyMiddleware(
+    ...middlewares
+  )(create)
+
+  const store = createStoreWithMiddleware(rootReducer, initialState)
 
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers
