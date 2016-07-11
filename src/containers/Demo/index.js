@@ -10,9 +10,9 @@ import React, {
 } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import Main from '../components/Main';
+import Main from '../../components/Main';
 /* Populated by react-webpack-redux:reducer */
-class App extends Component {
+class Demo extends Component {
   render() {
     const {actions} = this.props;
     return <Main actions={actions}/>;
@@ -23,7 +23,7 @@ class App extends Component {
  * HINT: if you adjust the initial type of your reducer, you will also have to
  *       adjust it here.
  */
-App.propTypes = {
+Demo.propTypes = {
   actions: PropTypes.object.isRequired
 };
 function mapStateToProps(state) {
@@ -37,4 +37,4 @@ function mapDispatchToProps(dispatch) {
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;
 }
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(Demo);

@@ -1,9 +1,11 @@
 // import Index from './containers/routes/Index';
 // import Self from './containers/routes/Self';
 import App from './containers/App';
+import Demo from './containers/Demo';
 
 const routes = [
-  { path: '/',
+  {
+    path: '/yo',
     component: App
     // childRoutes: [
     //   { path: 'example',
@@ -13,6 +15,10 @@ const routes = [
     //     component: Self
     //   }
     // ]
+  },
+  {
+    path: '/demo',
+    component: Demo
   }
 ];
 
