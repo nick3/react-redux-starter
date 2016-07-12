@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware } from 'redux'
 import { logger, promise } from '../middleware'
 import rootReducer from '../reducers'
-import config from 'config'
+import { appEnv } from 'config'
 
 export default function configure(initialState) {
   const create = window.devToolsExtension
@@ -9,13 +9,12 @@ export default function configure(initialState) {
     : createStore
 
   const middlewares = [promise]
-  if (config.appEnv === 'dev') {
+  if (appEnv === 'dev') {
     middlewares.push(logger)
   }
   const createStoreWithMiddleware = applyMiddleware(
     ...middlewares
   )(create)
-
   const store = createStoreWithMiddleware(rootReducer, initialState)
 
   if (module.hot) {

@@ -3,7 +3,9 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { browserHistory, Router } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
+import Immutable from 'immutable'
 import configureStore from './stores'
+import App from './containers/App'
 import routes from './routes'
 
 import injectTapEventPlugin from 'react-tap-event-plugin'
@@ -12,8 +14,25 @@ import injectTapEventPlugin from 'react-tap-event-plugin'
 // http://stackoverflow.com/a/34015469/988941
 injectTapEventPlugin()
 
-const store = configureStore()
-const history = syncHistoryWithStore(browserHistory, store)
+const initialState = Immutable.Map()
+const store = configureStore(initialState)
+
+/* Create enhanced history object for router */
+const createSelectLocationState = () => {
+  let prevRoutingState, prevRoutingStateJS;
+  return (state) => {
+    const routingState = state.get('routing') // or state.routing
+    if (typeof prevRoutingState === 'undefined' || prevRoutingState !== routingState) {
+      prevRoutingState = routingState
+      prevRoutingStateJS = routingState.toJS()
+    }
+    return prevRoutingStateJS
+  }
+}
+
+const history = syncHistoryWithStore(browserHistory, store, {
+    selectLocationState: createSelectLocationState()
+})
 
 render(
   <Provider store={store}>

@@ -6,8 +6,8 @@
  *          This modifications only run once when the generator is invoked - if
  *          you edit them, they are not updated again.
  */
-import { combineReducers } from 'redux'
-import { routerReducer } from 'react-router-redux'
+import routerReducer from './router'
+import { combineReducers } from 'redux-immutable'
 /* Populated by react-webpack-redux:reducer */
 const reducers = {
   routing: routerReducer
