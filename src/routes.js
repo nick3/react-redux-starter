@@ -5,7 +5,7 @@ import Demo from './containers/Demo'
 
 const routes = [
   {
-    path: '/yo',
+    path: '/',
     component: App
     // childRoutes: [
     //   { path: 'example',
