@@ -12,23 +12,47 @@ function getDefaultModules() {
     loaders: [
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader!postcss-loader'
+        loaders: [
+          'style-loader',
+          'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[local]___[hash:base64:5]',
+          'postcss-loader'
+        ]
       },
       {
         test: /\.sass/,
-        loader: 'style-loader!css-loader!postcss-loader!sass-loader?outputStyle=expanded&indentedSyntax'
+        loaders: [
+          'style-loader',
+          'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[local]___[hash:base64:5]',
+          'postcss-loader',
+          'sass-loader?outputStyle=expanded&indentedSyntax'
+        ]
       },
       {
         test: /\.scss/,
-        loader: 'style-loader!css-loader!postcss-loader!sass-loader?outputStyle=expanded'
+        loaders: [
+          'style-loader',
+          'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[local]___[hash:base64:5]',
+          'postcss-loader',
+          'sass-loader?outputStyle=expanded'
+        ]
       },
       {
         test: /\.less/,
-        loader: 'style-loader!css-loader!postcss-loader!less-loader'
+        loaders: [
+          'style-loader',
+          'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[local]___[hash:base64:5]',
+          'postcss-loader',
+          'less-loader'
+        ]
       },
       {
         test: /\.styl/,
-        loader: 'style-loader!css-loader!postcss-loader!stylus-loader'
+        loaders: [
+          'style-loader',
+          'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[local]___[hash:base64:5]',
+          'postcss-loader',
+          'stylus-loader'
+        ]
       },
       {
         test: /\.(png|jpg|gif|woff|woff2)$/,
@@ -47,6 +71,11 @@ module.exports = {
   port: dfltPort,
   getDefaultModules: getDefaultModules,
   postcss: function () {
-    return [];
+    return [
+      require('autoprefixer')({
+        browsers: ['last 2 versions', 'ie >= 9']
+      }),
+      require('rucksack-css')()
+    ];
   }
 };

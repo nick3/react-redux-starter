@@ -12,13 +12,17 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import Header from '../../components/Header'
+
+// import classnames from 'classnames'
+import style from './demo.scss'
+
 /* Populated by react-webpack-redux:reducer */
 class Demo extends Component {
   render() {
     // const {actions} = this.props;
     return (
       <MuiThemeProvider>
-        <div>
+        <div className={style.container}>
           <Header title="Demo" />
         </div>
       </MuiThemeProvider>
