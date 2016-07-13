@@ -40,3 +40,5 @@ render(
   </Provider>,
   document.getElementById('app')
 )
+
+window.loading_screen.finish()

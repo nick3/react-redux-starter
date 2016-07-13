@@ -23,7 +23,7 @@ function getDefaultModules() {
         loaders: [
           'style-loader',
           'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[local]___[hash:base64:5]',
-          'postcss-loader',
+          'postcss-loader?parser=postcss-scss',
           'sass-loader?outputStyle=expanded&indentedSyntax'
         ]
       },
@@ -32,7 +32,7 @@ function getDefaultModules() {
         loaders: [
           'style-loader',
           'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[local]___[hash:base64:5]',
-          'postcss-loader',
+          'postcss-loader?parser=postcss-scss',
           'sass-loader?outputStyle=expanded'
         ]
       },
@@ -72,10 +72,13 @@ module.exports = {
   getDefaultModules: getDefaultModules,
   postcss: function () {
     return [
+      require('stylelint')(),
       require('autoprefixer')({
         browsers: ['last 2 versions', 'ie >= 9']
       }),
-      require('rucksack-css')()
+      require('rucksack-css')(),
+      require('postcss-reporter')(),
+      require('postcss-browser-reporter')()
     ];
   }
 };
