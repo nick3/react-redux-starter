@@ -1,0 +1,27 @@
+cache:
+  paths:
+    - node_modules/
+    - src/assets/libs/
+
+before_script:
+  - npm install
+  - bower install
+
+stages:
+  - build
+  - deploy
+
+build_job:
+  stage: build
+  only:
+    - develop
+  script:
+    - npm run lint
+
+build_and_deploy_job:
+  stage: deploy
+  only:
+    - master
+  script:
+    - npm run clean
+    - npm run dist
