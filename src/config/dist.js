@@ -1,8 +1,6 @@
-'use strict'
-
 import baseConfig from './base'
 
-let config = {
+const config = {
   appEnv: 'dist'  // feel free to remove the appEnv property here
 }
 

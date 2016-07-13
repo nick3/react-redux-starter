@@ -40,12 +40,12 @@ Demo.propTypes = {
 
 function mapStateToProps(state) {
   /* Populated by react-webpack-redux:reducer */
-  const props = {};
+  const props = {}
   return props
 }
 function mapDispatchToProps(dispatch) {
   /* Populated by react-webpack-redux:action */
-  const actions = {};
+  const actions = {}
   const actionMap = { actions: bindActionCreators(actions, dispatch) }
   return actionMap
 }

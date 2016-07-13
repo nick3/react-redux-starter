@@ -5,7 +5,6 @@ import { browserHistory, Router } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 import Immutable from 'immutable'
 import configureStore from './stores'
-import App from './containers/App'
 import routes from './routes'
 
 import injectTapEventPlugin from 'react-tap-event-plugin'
@@ -19,7 +18,8 @@ const store = configureStore(initialState)
 
 /* Create enhanced history object for router */
 const createSelectLocationState = () => {
-  let prevRoutingState, prevRoutingStateJS;
+  let prevRoutingState
+  let prevRoutingStateJS
   return (state) => {
     const routingState = state.get('routing') // or state.routing
     if (typeof prevRoutingState === 'undefined' || prevRoutingState !== routingState) {
@@ -31,7 +31,7 @@ const createSelectLocationState = () => {
 }
 
 const history = syncHistoryWithStore(browserHistory, store, {
-    selectLocationState: createSelectLocationState()
+  selectLocationState: createSelectLocationState()
 })
 
 render(

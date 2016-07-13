@@ -11,7 +11,9 @@ class AppComponent extends React.Component {
     return (
       <div className={style.index}>
         <img src={yeomanImage} alt="Yeoman Generator" />
-        <div className={style.notice}>Please edit <code>src/components/Main.js</code> to get started!</div>
+        <div className={style.notice}>
+          Please edit <code>src/components/Main.js</code> to get started!
+        </div>
         <Link to="/demo">Demo</Link>
       </div>
     )
