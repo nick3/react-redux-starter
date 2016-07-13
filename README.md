@@ -6,7 +6,7 @@ React-redux-starter
 安装
 ----
 
-```
+```bash
 npm i -g bower
 
 npm i
