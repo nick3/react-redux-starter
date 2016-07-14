@@ -14,7 +14,7 @@ function getDefaultModules() {
         test: /\.css$/,
         loaders: [
           'style-loader',
-          'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[local]___[hash:base64:5]',
+          'css-loader?camelCase&modules&sourceMap&importLoaders=1&localIdentName=[local]___[hash:base64:5]',
           'postcss-loader'
         ]
       },
@@ -22,7 +22,7 @@ function getDefaultModules() {
         test: /\.sass/,
         loaders: [
           'style-loader',
-          'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[local]___[hash:base64:5]',
+          'css-loader?camelCase&modules&sourceMap&importLoaders=1&localIdentName=[local]___[hash:base64:5]',
           'postcss-loader?parser=postcss-scss',
           'sass-loader?outputStyle=expanded&indentedSyntax'
         ]
@@ -31,7 +31,7 @@ function getDefaultModules() {
         test: /\.scss/,
         loaders: [
           'style-loader',
-          'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[local]___[hash:base64:5]',
+          'css-loader?camelCase&modules&sourceMap&importLoaders=1&localIdentName=[local]___[hash:base64:5]',
           'postcss-loader?parser=postcss-scss',
           'sass-loader?outputStyle=expanded'
         ]
@@ -40,7 +40,7 @@ function getDefaultModules() {
         test: /\.less/,
         loaders: [
           'style-loader',
-          'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[local]___[hash:base64:5]',
+          'css-loader?camelCase&modules&sourceMap&importLoaders=1&localIdentName=[local]___[hash:base64:5]',
           'postcss-loader',
           'less-loader'
         ]
@@ -49,7 +49,7 @@ function getDefaultModules() {
         test: /\.styl/,
         loaders: [
           'style-loader',
-          'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[local]___[hash:base64:5]',
+          'css-loader?camelCase&modules&sourceMap&importLoaders=1&localIdentName=[local]___[hash:base64:5]',
           'postcss-loader',
           'stylus-loader'
         ]

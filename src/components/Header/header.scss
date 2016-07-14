@@ -1,0 +1,29 @@
+.header {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.user-box {
+  color: #999;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+}
+
+.username {
+  margin: 0 8px;
+  color: #41D2AE;
+}
+
+.title {
+  flex: 1;
+  text-align: center;
+}
+
+.topbar-btn {
+  margin-right: 5px !important;
+}

@@ -11,19 +11,40 @@ import React, {
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import Header from '../../components/Header'
+import getMuiTheme from 'material-ui/styles/getMuiTheme'
+import Header from 'components/Header'
+import ClassroomCard from 'components/ClassroomCard'
+import CardButton from 'components/CardButton'
+import style from './demo.scss'
 
 // import classnames from 'classnames'
-import style from './demo.scss'
+
+const muiTheme = getMuiTheme({
+  palette: {
+    primary1Color: '#41D2AE',
+    accent1Color: '#EE4341',
+  }
+})
 
 /* Populated by react-webpack-redux:reducer */
 class Demo extends Component {
+  getClassroomCards(classes) {
+    return classes.map(classInfo => (
+      <ClassroomCard class={style.classroomCard} key={classInfo.classId} info={classInfo} />
+    ))
+  }
+
   render() {
-    // const {actions} = this.props;
+    const { classes } = this.props
+
     return (
-      <MuiThemeProvider>
-        <div className={style.container}>
+      <MuiThemeProvider muiTheme={muiTheme}>
+        <div>
           <Header title="Demo" />
+          <div className={style.container}>
+            {this.getClassroomCards(classes)}
+            <CardButton class="foo" />
+          </div>
         </div>
       </MuiThemeProvider>
     )
@@ -35,12 +56,22 @@ class Demo extends Component {
  *       adjust it here.
  */
 Demo.propTypes = {
+  classes: PropTypes.array,
   actions: PropTypes.object.isRequired
 }
 
 function mapStateToProps(state) {
   /* Populated by react-webpack-redux:reducer */
-  const props = {}
+  const classInfo = {
+    classId: 1,
+    teacherName: '唐丽',
+    schoolName: '华中科技大学',
+    collegeName: '电子信息与通信学院',
+    teacherDesc: '副教授，IEEE协会高级会员'
+  }
+  const props = {
+    classes: [classInfo]
+  }
   return props
 }
 function mapDispatchToProps(dispatch) {

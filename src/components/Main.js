@@ -1,4 +1,4 @@
-require('normalize.css/normalize.css')
+// require('normalize.css/normalize.css')
 import style from 'styles/App.css'
 import { Link } from 'react-router'
 
