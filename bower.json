@@ -9,7 +9,6 @@
   "homepage": "https://github.com/nick3/react-redux-starter",
   "dependencies": {
     "please-wait": "^0.0.5",
-    "SpinKit": "spinkit#^1.2.5",
-    "material-design-icons": "^2.2.3"
+    "SpinKit": "spinkit#^1.2.5"
   }
 }

@@ -12,6 +12,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
+import { GridList, GridTile } from 'material-ui'
 import Header from 'components/Header'
 import ClassroomCard from 'components/ClassroomCard'
 import CardButton from 'components/CardButton'
@@ -26,24 +27,49 @@ const muiTheme = getMuiTheme({
   }
 })
 
+const gridStyles = {
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    padding: '20px',
+  },
+  gridList: {
+    width: '100%',
+    height: '100%',
+    overflowY: 'auto',
+    marginBottom: 24,
+  },
+}
+
 /* Populated by react-webpack-redux:reducer */
 class Demo extends Component {
   getClassroomCards(classes) {
     return classes.map(classInfo => (
-      <ClassroomCard class={style.classroomCard} key={classInfo.classId} info={classInfo} />
+      <GridTile
+        key={classInfo.classId}
+      >
+        <ClassroomCard info={classInfo} />
+      </GridTile>
     ))
   }
 
   render() {
     const { classes } = this.props
-
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div>
           <Header title="Demo" />
-          <div className={style.container}>
-            {this.getClassroomCards(classes)}
-            <CardButton class="foo" />
+          <div style={gridStyles.root}>
+            <GridList
+              cellHeight={400}
+              style={gridStyles.gridList}
+            >
+              {this.getClassroomCards(classes)}
+              <GridTile>
+                <CardButton />
+              </GridTile>
+            </GridList>
           </div>
         </div>
       </MuiThemeProvider>

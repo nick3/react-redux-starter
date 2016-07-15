@@ -18,7 +18,6 @@ class ClassroomCard extends React.Component {
           src={yeomanImage}
           backgroundColor="white"
           size={120}
-          style={{ border: '2px solid #fff' }}
         />
         <h1 className={style.teacherName}>{this.props.info.teacherName}</h1>
         <div className={style.schoolName}>
